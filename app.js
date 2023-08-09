@@ -4,7 +4,7 @@ const router = express.Router();
 const cors = require('cors');
 
 const path = __dirname + '/views/';
-const port = 8080;
+const port = 8081;
 app.use(cors());
 router.use(function (req,res,next) {
   console.log('/' + req.method);
@@ -23,7 +23,7 @@ app.use(express.static(path));
 app.use('/', router);
 
 app.listen(port, function () {
-  console.log('Example app listening on port 8080!')
+  console.log('Example app listening on port 8081!')
 })
 
 
