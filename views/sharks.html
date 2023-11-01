@@ -10,7 +10,7 @@
     }
 
     h1,
-    h3 {
+    h3,h5 {
         text-align: center;
     }
 
@@ -57,7 +57,8 @@
     
     alert(phrase); // Ошибка: phrase не определена
     </pre>
-<h3>Такие переменные доступны за пределами блока.</h3>
+    <h3>Для «var» не существует блочной области видимости</h3>
+<h5>Такие переменные доступны за пределами блока.</h5>
 
 Например:
 
@@ -67,4 +68,38 @@
         
         alert(test); // true, переменная существует вне блока if
         </pre>
-<h3>Для «var» не существует блочной области видимости</h3>
+<p>Так как <b>var</b> игнорирует блоки, мы получили глобальную переменную test.
+
+    А если бы мы использовали <b>let</b> test вместо var test, тогда переменная была бы видна только внутри if:</p>
+    <pre>if (true) {
+        let test = true; // используем let
+      }
+      
+      alert(test); </pre>
+
+      <h1>Screen width</h1>
+
+
+      <script>
+function sum(a) {
+
+let currentSum = a;
+
+function f(b) {
+  currentSum += b;
+  return f;
+}
+
+f.toString = function() {
+  return currentSum;
+};
+
+return f;
+}
+
+alert( sum(1)(2) ); // 3
+// alert( sum(5)(-1)(2) ); // 6
+// alert( sum(6)(-1)(-2)(-3) ); // 0
+// alert( sum(0)(1)(2)(3)(4)(5) ); // 15
+
+      </script>

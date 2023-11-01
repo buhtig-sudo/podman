@@ -14,16 +14,22 @@ router.use(function (req,res,next) {
 router.get('/', function(req,res){
   res.sendFile(path + 'index.html');
 });
+router.get('/dom', function(req,res){
+  res.sendFile(path + 'dom.html');
+});
 
 router.get('/sharks', function(req,res){
   res.sendFile(path + 'sharks.html');
+});
+router.get('/traktor', function(req,res){
+  res.sendFile(path + 'traktor.html');
 });
 
 app.use(express.static(path));
 app.use('/', router);
 
 app.listen(port, function () {
-  console.log('Example app listening on port 8081!')
+  console.log(`http://127.0.0.1:${port}`)
 })
 
 
